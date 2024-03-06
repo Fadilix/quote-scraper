@@ -17,6 +17,18 @@ class QuotescraperPipeline:
         new_author_description = author_description.strip()
         adapter["author_description"] = new_author_description
         
-        
-        
         return item
+
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import os
+class PostgreSQLPipeline():
+    def __init__(self) -> None:
+        self.engine = create_engine(os.getenv("DATABASE_URL"))
+        self.Session = sessionmaker(bind=self.engine)
+    
+
+    def process_item(self, item, spider):
+        session = self.Session()
+        
