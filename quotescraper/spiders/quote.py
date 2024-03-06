@@ -1,4 +1,5 @@
 import scrapy
+from quotescraper.items import QuoteItem
 
 
 class QuoteSpider(scrapy.Spider):
@@ -24,7 +25,11 @@ class QuoteSpider(scrapy.Spider):
             url = quote.css("span a::attr(href)").get()
             yield response.follow(url, callback=self.parse_author_page, meta={"quote_item" : quote_item})
 
+        next_page = response.css("li.next a::attr(href)").get()
+        yield response.follow(next_page, callback=self.parse)
     def parse_author_page(self, response):
+        # instance of quoteItem
+        q_item = QuoteItem()
 
         quote_item = response.meta.get("quote_item", {})
 
@@ -32,9 +37,12 @@ class QuoteSpider(scrapy.Spider):
         author_born_location = response.css("span.author-born-location::text").get()
         author_description = response.css("div.author-description::text").get()
 
-        quote_item["author_born_date"] = author_born_date
-        quote_item["author_born_location"] = author_born_location
-        quote_item["author_description"] = author_description
+        q_item["quote_text"] = quote_item["quote_text"]
+        q_item["author"] = quote_item["author"]
+        q_item["tags"] = quote_item["tags"]
+        q_item["author_born_date"] = author_born_date
+        q_item["author_born_location"] = author_born_location
+        q_item["author_description"] = author_description
 
 
-        yield quote_item
+        yield q_item
