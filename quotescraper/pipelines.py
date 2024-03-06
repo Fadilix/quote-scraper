@@ -10,4 +10,13 @@ from itemadapter import ItemAdapter
 
 class QuotescraperPipeline:
     def process_item(self, item, spider):
+        adapter = ItemAdapter(item)
+
+        # Trim the extra space of the author description
+        author_description = adapter.get("author_description")
+        new_author_description = author_description.strip()
+        adapter["author_description"] = new_author_description
+        
+        
+        
         return item
