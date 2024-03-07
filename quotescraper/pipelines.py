@@ -22,13 +22,25 @@ class QuotescraperPipeline:
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import os
-class PostgreSQLPipeline():
-    def __init__(self) -> None:
-        self.engine = create_engine(os.getenv("DATABASE_URL"))
+from quotescraper.settings import DATABASE_URL
+
+from quotescraper.models.Quote import Quote
+class PostgreSQLPipeline:
+    def __init__(self):
+        self.engine = create_engine(DATABASE_URL)
         self.Session = sessionmaker(bind=self.engine)
-    
 
     def process_item(self, item, spider):
         session = self.Session()
+        quote = Quote(**item)
+
+        try:
+            session.add(quote)
+            session.commit()
+        except Exception as e:
+            session.rollback()
+            spider.log(f"Error while adding the data: {e}")
+        finally:
+            session.close()
         
+        return item
