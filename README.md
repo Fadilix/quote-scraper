@@ -5,7 +5,7 @@
 Scrapy is an open-source web crawling and scraping framework for Python, designed to facilitate the extraction of data from websites. 
 
 ## Overview
-The Quote Scraper project utilizes Scrapy to gather quotes and related information from quotes.toscrape.com. The spider navigates through the website, extracting details such as quote text, author, tags, birth date, birth location, and author description. The data is then stored in both a PostgreSQL database and a JSON file, providing users with flexibility in data storage options. This project serves as a practical example of web scraping using Scrapy, demonstrating its capability to efficiently navigate and collect structured data from a website, and showcases best practices for storing the scraped information in a relational database and a backup JSON file.
+The Quote Scraper project utilizes Scrapy to gather quotes and related information from [https://www.quotes.toscrape.com](https://quotes.toscrape.com/). The spider navigates through the website, extracting details such as quote text, author, tags, birth date, birth location, and author description. The data is then stored in both a PostgreSQL database and a JSON file, providing users with flexibility in data storage options. This project serves as a practical example of web scraping using Scrapy, demonstrating its capability to efficiently navigate and collect structured data from a website, and showcases best practices for storing the scraped information in a relational database and a backup JSON file.
 
 ## Requirements
 * Python 3.x
