@@ -93,7 +93,7 @@ class PostgreSQLPipeline:
     "tags": ["authors", "books", "literature", "reading", "writing"],
     "author_born_date": "January 01, 1919",
     "author_born_location": "in Manhattan, New York, The United States",
-    "author_description": "Jerome David Salinger was an American author, best known for his 1951 nov..."
+    "author_description": "Jerome David Salinger was an American author, best kn..."
   },
 ```
 
