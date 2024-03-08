@@ -94,4 +94,4 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 
-DATABASE_URL = "{dialect}://{username}:{password}@{host}:{post}/{db_name}"
+DATABASE_URL = "postgresql://postgres:nextgen@localhost:5432/quote_scraper_db"
