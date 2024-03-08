@@ -44,18 +44,27 @@ class Quote(Base):
 ```
 
 ## Usage
-- Install the required dependencies
+- **Install the required dependencies**
   ```bash
   pip install -r requirements.txt
   ```
-- Go into the spiders folders
+- **Go into the spiders folders**
   ```bash
   cd .\quotescraper\spiders\
   ```
-- Run the spider to scrape quotes and store them in the database:
+- **Run the spider to scrape quotes and store them in the database:**
   ```bash
   scrapy crawl quote
   ```
+* **You can also save the data to a file**
+  * possible formats : `(('json', 'jsonlines', 'jsonl', 'jl', 'csv', 'xml', 'marshal', 'pickle'))`
+  * command :
+    ```bash
+    scrapy crawl quote -O yourfile.[your_chosen_extension]
+    ```
+  * Arguments:
+    * `-O` to override the previous data
+    * `-o` to append the new data to the previous
 
 ## `PostgreSQL` pipeline to store the data in the database :
 ```python
