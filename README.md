@@ -11,6 +11,7 @@ The Quote Scraper project utilizes Scrapy to gather quotes and related informati
 * Python 3.x
 * Scrapy
 * SQLAlchemy
+* PostgreSQL database
 
 ## Database setup
 - Create a `database` with a name you want
@@ -97,5 +98,5 @@ class PostgreSQLPipeline:
 ```
 
 
-
+#
   
