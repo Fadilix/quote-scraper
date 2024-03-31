@@ -60,7 +60,7 @@ class Quote(Base):
   * possible formats : `(('json', 'jsonlines', 'jsonl', 'jl', 'csv', 'xml', 'marshal', 'pickle'))`
   * command :
     ```bash
-    scrapy crawl quote -O yourfile.[your_chosen_extension]
+    `scrapy crawl quote -O yourfile.[your_chosen_extension]`
     ```
   * Arguments:
     * `-O` to override the previous data
